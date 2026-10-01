@@ -1,6 +1,7 @@
 # Agenda Contatos Python - Fundamentos Python | Rocketseat
 
 import json
+
 ARQUIVO_CONTATOS = "contatos.json"
 
 def carregar_contatos():
@@ -42,7 +43,7 @@ def adicionar_contato(contatos):
 def listar_contatos(contatos):
     if not contatos:
         print()
-        print("Nenhum contato cadastrado")
+        print("Nenhum contato cadastrado.")
         return
 
     print()
@@ -180,24 +181,24 @@ def apagar_contato(contatos):
 
 # Menu interativo
 while True:
-    print ()
-    print ("Agenda de contatos")
-    print ()
-    print ("1. Adicionar contato")
-    print ("2. Listar contatos")
-    print ("3. Editar contato")
-    print ("4. Marcar ou desmarcar contato como favorito")
-    print ("5. Listar contatos favoritos")
-    print ("6. Apagar contato")
-    print ("0. Sair")
-    print ()
+    print()
+    print("Agenda de contatos")
+    print()
+    print("1. Adicionar contato")
+    print("2. Listar contatos")
+    print("3. Editar contato")
+    print("4. Marcar ou desmarcar contato como favorito")
+    print("5. Listar contatos favoritos")
+    print("6. Apagar contato")
+    print("0. Sair")
+    print()
 
     opcao = input("Escolha uma opção: ")
-    print ()
+    print()
 
     if opcao == "0":
-        print ("Programa encerrado.")
-        print ()
+        print("Programa encerrado.")
+        print()
         break
 
     elif opcao == "1":
