@@ -44,3 +44,35 @@ Clone o repositório:
 ```bash
 git clone https://github.com/waldirevora/agenda-contatos-python.git
 ```
+
+Entre na pasta do projeto:
+
+```bash
+cd agenda-contatos-python
+```
+
+Execute a aplicação:
+
+```bash
+python app.py
+```
+
+## Estrutura do projeto
+
+```text
+agenda-contatos-python/
+├── app.py
+├── .gitignore
+└── README.md
+```
+
+O arquivo `contatos.json` é criado automaticamente durante o uso da aplicação e permanece apenas no ambiente local.
+
+## Requisitos
+
+- Python 3 instalado
+- Git, caso queira clonar o repositório
+
+## Objetivo
+
+Este projeto foi desenvolvido para praticar e consolidar fundamentos de Python por meio de uma aplicação de linha de comando.
