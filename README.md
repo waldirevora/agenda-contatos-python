@@ -42,5 +42,5 @@ Durante o desenvolvimento foram utilizados:
 Clone o repositório:
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/waldirevora/agenda-contatos-python.git
 ```
