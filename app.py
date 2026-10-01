@@ -1,8 +1,25 @@
 # Agenda Contatos Python - Fundamentos Python | Rocketseat
 
-# Adicionar contatos
-contatos = []
+import json
+ARQUIVO_CONTATOS = "contatos.json"
 
+def carregar_contatos():
+    try:
+        with open(ARQUIVO_CONTATOS, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+
+    except FileNotFoundError:
+        return []
+
+
+def salvar_contatos(contatos):
+    with open(ARQUIVO_CONTATOS, "w", encoding="utf-8") as arquivo:
+        json.dump(contatos, arquivo, ensure_ascii=False, indent=4)
+
+# Contatos
+contatos = carregar_contatos()
+
+# Adicionar contatos
 def adicionar_contato(contatos):
     nome = input("Nome: ")
     telefone = input("Telefone: ")
@@ -16,6 +33,7 @@ def adicionar_contato(contatos):
     }
 
     contatos.append(contato)
+    salvar_contatos(contatos)
 
     print()
     print("Contato adicionado com sucesso.")
@@ -69,6 +87,7 @@ def editar_contato(contatos):
         if email:
             contato["email"] = email
 
+        salvar_contatos(contatos)
         print()
         print("Contato atualizado com sucesso.")
 
@@ -95,6 +114,7 @@ def alternar_favorito(contatos):
         contato = contatos[indice]
 
         contato["favorito"] = not contato["favorito"]
+        salvar_contatos(contatos)
 
         print()
 
@@ -149,6 +169,7 @@ def apagar_contato(contatos):
             return
 
         contato_removido = contatos.pop(indice)
+        salvar_contatos(contatos)
 
         print()
         print(f"Contato {contato_removido['nome']} apagado com sucesso.")
