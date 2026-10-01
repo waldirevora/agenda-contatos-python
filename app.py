@@ -107,6 +107,31 @@ def alternar_favorito(contatos):
         print()
         print("Digite um número válido.")
 
+# Listar favoritos
+def listar_favoritos(contatos):
+    if not contatos:
+        print()
+        print("Nenhum contato cadastrado.")
+        return
+
+    print()
+    print("Contatos favoritos:")
+
+    favoritos_encontrados = False
+
+    for indice, contato in enumerate(contatos, start=1):
+        if contato["favorito"]:
+            favoritos_encontrados = True
+
+            print(
+                f"{indice}. {contato['nome']} | "
+                f"{contato['telefone']} | "
+                f"{contato['email']}"
+            )
+
+    if not favoritos_encontrados:
+        print("Nenhum contato favorito.")
+
 # Menu interativo
 while True:
     print ()
@@ -142,7 +167,7 @@ while True:
         alternar_favorito(contatos)
 
     elif opcao == "5":
-        print ("Listar contatos favoritos")
+        listar_favoritos(contatos)
 
     elif opcao == "6":
         print ("Apagar contato")
