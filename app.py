@@ -76,6 +76,36 @@ def editar_contato(contatos):
         print()
         print("Digite um número válido.")
 
+# Controle de favoritos
+def alternar_favorito(contatos):
+    if not contatos:
+        print()
+        print("Nenhum contato cadastrado.")
+        return
+
+    listar_contatos(contatos)
+
+    try:
+        indice = int(input("\nDigite o número do contato: ")) - 1
+
+        if indice < 0 or indice >= len(contatos):
+            print("Contato não encontrado.")
+            return
+
+        contato = contatos[indice]
+
+        contato["favorito"] = not contato["favorito"]
+
+        print()
+
+        if contato["favorito"]:
+            print("Contato marcado como favorito.")
+        else:
+            print("Contato removido dos favoritos.")
+
+    except ValueError:
+        print()
+        print("Digite um número válido.")
 
 # Menu interativo
 while True:
@@ -109,7 +139,7 @@ while True:
         editar_contato(contatos)
 
     elif opcao == "4":
-        print ("Marcar ou desmarcar contato como favorito")
+        alternar_favorito(contatos)
 
     elif opcao == "5":
         print ("Listar contatos favoritos")
