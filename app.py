@@ -37,6 +37,46 @@ def listar_contatos(contatos):
             f"{contato['email']}"
         )
 
+# Editar contato
+def editar_contato(contatos):
+    if not contatos:
+        print()
+        print("Nenhum contato cadastrado.")
+        return
+
+    listar_contatos(contatos)
+
+    try:
+        indice = int(input("\nDigite o número do contato que deseja editar: ")) - 1
+
+        if indice < 0 or indice >= len(contatos):
+            print("Contato não encontrado.")
+            return
+
+        contato = contatos[indice]
+
+        print()
+        nome = input(f"Nome ({contato['nome']}): ").strip()
+        telefone = input(f"Telefone ({contato['telefone']}): ").strip()
+        email = input(f"E-mail ({contato['email']}): ").strip()
+
+        if nome:
+            contato["nome"] = nome
+
+        if telefone:
+            contato["telefone"] = telefone
+
+        if email:
+            contato["email"] = email
+
+        print()
+        print("Contato atualizado com sucesso.")
+
+    except ValueError:
+        print()
+        print("Digite um número válido.")
+
+
 # Menu interativo
 while True:
     print ()
@@ -66,7 +106,7 @@ while True:
         listar_contatos(contatos)
 
     elif opcao == "3":
-        print ("Editar contato")
+        editar_contato(contatos)
 
     elif opcao == "4":
         print ("Marcar ou desmarcar contato como favorito")
