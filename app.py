@@ -1,5 +1,43 @@
 # Agenda Contatos Python - Fundamentos Python | Rocketseat
 
+# Adicionar contatos
+contatos = []
+
+def adicionar_contato(contatos):
+    nome = input("Nome: ")
+    telefone = input("Telefone: ")
+    email = input("E-mail: ")
+
+    contato = {
+        "nome": nome,
+        "telefone": telefone,
+        "email": email,
+        "favorito": False
+    }
+
+    contatos.append(contato)
+
+    print()
+    print("Contato adicionado com sucesso.")
+
+# Listar contatos
+def listar_contatos(contatos):
+    if not contatos:
+        print()
+        print("Nenhum contato cadastrado")
+        return
+
+    print()
+    print("Contatos cadastrados:")
+
+    for indice, contato in enumerate(contatos, start=1):
+        print(
+            f"{indice}. {contato['nome']} | "
+            f"{contato['telefone']} | "
+            f"{contato['email']}"
+        )
+
+# Menu interativo
 while True:
     print ()
     print ("Agenda de contatos")
@@ -22,10 +60,10 @@ while True:
         break
 
     elif opcao == "1":
-        print ("Adicionar contato")
+        adicionar_contato(contatos)
 
     elif opcao == "2":
-        print ("Listar contatos")
+        listar_contatos(contatos)
 
     elif opcao == "3":
         print ("Editar contato")
